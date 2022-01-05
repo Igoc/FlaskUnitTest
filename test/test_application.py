@@ -17,6 +17,9 @@ def client():
     with app.test_client() as client:
         yield client
 
+    # Reset Flask application mode
+    app.config['TESTING'] = False
+
 def test_index(client):
     # Get response
     response = client.get('/test').json
