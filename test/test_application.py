@@ -3,10 +3,11 @@
 # Copyright (c) Sangsu Ryu
 # Licensed under the terms of the MIT license
 
+from flask import g
+
 import pytest
 
-from application       import app
-from database.database import connection
+from application import app
 
 @pytest.fixture
 def client():
@@ -25,7 +26,7 @@ def test_index(client):
     response = client.get('/test').json
 
     # Rollback transaction
-    connection.rollback()
+    g.database.rollback()
 
     # Print response
     print(response)

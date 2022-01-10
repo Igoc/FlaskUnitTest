@@ -5,8 +5,6 @@
 
 import os
 
-import mysql.connector
-
 config = {
     'host': 'localhost',
     'port': 3306,
@@ -17,5 +15,3 @@ config = {
     'database': 'flask_unit_test',
     'charset': 'utf8'
 }
-
-connection = mysql.connector.connect(**config)
